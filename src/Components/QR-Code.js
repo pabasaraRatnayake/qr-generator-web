@@ -1,20 +1,30 @@
 import React, { useState, useEffect } from "react";
 import QRCode from "react-qr-code";
-//import QRCode from "qrcode.react";
-//import QrCode from "react-qr-svg";
+import axios from "axios";
 
 function QRCodeGenerator() {
     const [qrCodeValue, setQRCodeValue] = useState("");
 
     useEffect(() => {
-        const xhr = new XMLHttpRequest();
-        xhr.open("GET", "/qr-generator?_=" + new Date().getTime(), true);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                setQRCodeValue(xhr.responseText);
-            }
+        const source = axios.CancelToken.source();
+        axios
+            .get("/qr-generator", {
+                cancelToken: source.token,
+                params: {
+                    _: new Date().getTime(),
+                },
+            })
+            .then((response) => {
+                setQRCodeValue(response.data);
+            })
+            .catch((error) => {
+                if (!axios.isCancel(error)) {
+                    console.log(error);
+                }
+            });
+        return () => {
+            source.cancel();
         };
-        xhr.send();
     }, []);
 
     return (
@@ -25,6 +35,3 @@ function QRCodeGenerator() {
 }
 
 export default QRCodeGenerator;
-
-
-
