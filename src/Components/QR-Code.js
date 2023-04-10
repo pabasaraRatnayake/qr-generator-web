@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from "react";
-import QRCode from "react-qr-code";
-import axios from "axios";
+import React, { useState, useEffect } from 'react';
+import QRCode from 'qrcode.react';
+import axios from 'axios';
 
-function QRCodeGenerator() {
-    const [qrCodeValue, setQRCodeValue] = useState("");
+const QRCodeGenerator = () => {
+    const [qrText, setQRText] = useState("");
 
     useEffect(() => {
-        const source = axios.CancelToken.source();
-        axios
-            .get("/qr-generator", {
-                cancelToken: source.token,
-                params: {
-                    _: new Date().getTime(),
-                },
-            })
-            .then((response) => {
-                setQRCodeValue(response.data);
-            })
-            .catch((error) => {
-                if (!axios.isCancel(error)) {
-                    console.log(error);
-                }
-            });
-        return () => {
-            source.cancel();
-        };
+        const fetchData = async () => {
+            const result = await axios.get('/qr-generator');
+            setQRText(result.data);
+        }
+        fetchData();
     }, []);
 
     return (
         <div>
-            <QRCode value={qrCodeValue} />
+            <h1>QR Code Generator</h1>
+            <QRCode value={qrText} />
         </div>
     );
 }
