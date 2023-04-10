@@ -15,10 +15,26 @@ const QRCodeGenerator = () => {
 
     return (
         <div>
-            <h1>QR Code Generator</h1>
             <QRCode value={qrText} />
         </div>
     );
 }
 
 export default QRCodeGenerator;
+
+
+// import React from "react";
+// import QRCode from "qrcode.react";
+//
+// function QRCodeComponent(props) {
+//     return (
+//         <QRCode
+//             value={props.text}
+//             size={props.size || 256} // default size is 256
+//             bgColor={props.bgColor || "#FFFFFF"} // default background color is white
+//             fgColor={props.fgColor || "#000000"} // default foreground color is black
+//         />
+//     );
+// }
+//
+// export default QRCodeComponent;
