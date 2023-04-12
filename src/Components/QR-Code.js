@@ -7,8 +7,9 @@ const QRCodeGenerator = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const result = await axios.get('/qr-generator');
-            setQRText(result.data);
+            const result = await axios.get('http://localhost:8080/qr-generator');
+            console.log(result);
+            setQRText(result.data.qrValue);
         }
         fetchData();
     }, []);
@@ -23,18 +24,4 @@ const QRCodeGenerator = () => {
 export default QRCodeGenerator;
 
 
-// import React from "react";
-// import QRCode from "qrcode.react";
-//
-// function QRCodeComponent(props) {
-//     return (
-//         <QRCode
-//             value={props.text}
-//             size={props.size || 256} // default size is 256
-//             bgColor={props.bgColor || "#FFFFFF"} // default background color is white
-//             fgColor={props.fgColor || "#000000"} // default foreground color is black
-//         />
-//     );
-// }
-//
-// export default QRCodeComponent;
+

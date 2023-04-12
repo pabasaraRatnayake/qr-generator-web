@@ -6,7 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f8edf08e-3104-4c53-a705-ff33efd7c8c0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Components/QR-Code.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Components/QR-Code.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,7 +59,9 @@
       <workItem from="1680585734151" duration="823000" />
       <workItem from="1680588565883" duration="605000" />
       <workItem from="1680846923526" duration="1590000" />
-      <workItem from="1681103778538" duration="3621000" />
+      <workItem from="1681103778538" duration="4215000" />
+      <workItem from="1681183500464" duration="51000" />
+      <workItem from="1681281482192" duration="1521000" />
     </task>
     <servers />
   </component>
